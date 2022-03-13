@@ -1,10 +1,10 @@
 backend:
   # Use netlify identity as backend
-  #name: git-gateway
+  name: git-gateway
   branch: main
   ### enable below lines for github integration ###
-  name: github
-  repo: fig-project/fig-org
+  #name: github
+  #repo: fig-project/fig-org
 media_folder: "public/images"
 public_folder: "/images"
 
