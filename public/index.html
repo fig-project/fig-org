@@ -17,6 +17,12 @@
   </head>
   <body class="sidebars">
 
+<script type="text/javascript">
+  if (location.hash.includes('confirmation_token=')) {
+    location.pathname = '/admin/';
+  }
+</script>
+
 <!-- Layout -->
   <div id="header-region" class="clear-block"></div>
 
