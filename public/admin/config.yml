@@ -11,7 +11,7 @@ public_folder: "/images"
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true
 publish_mode: editorial_workflow
-collections:
+collections_old:
   - label: "Blog"
     name: "blog"
     folder: "src/posts"
@@ -30,6 +30,21 @@ collections:
         multiple: true
         create: true
         options: ["Tags", "created", "from", "config.yml"]
+collections:
+  - label: "Top level"
+    name: "toplevel"
+    folder: "src/top"
+    create: true
+    editor:
+      preview: true
+    preview_path: "{{slug}}.html"
+    slug: "{{name}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Page name", name: "name", widget: "string" }
+      - { label: "Author", name: "author", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
   - label: "Settings"
     name: "settings"
     editor:
@@ -42,7 +57,7 @@ collections:
           - label: Nav Items
             name: items
             widget: list
-            allow_add: false
+            allow_add: true
             collapsed: false
             fields:
               - { label: Title, name: text, widget: string }
