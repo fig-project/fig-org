@@ -9,6 +9,10 @@
         <!-- Include the script that builds the page and powers Netlify CMS -->
         <script src="https://unpkg.com/netlify-cms@^2.0.0/dist/netlify-cms.js"></script>
 
+        <script>
+          CMS.registerPreviewStyle("/css/garland.css");
+        </script>
+
         <script type="module">
           import htm from 'https://unpkg.com/htm?module';
           const html = htm.bind(h);
@@ -38,10 +42,9 @@
             `;
           };
           CMS.registerPreviewTemplate('toplevel', BlogPreview);
-          CMS.registerPreviewStyle("/css/garland.css");
-        </script>
+</script>
 
-        <!-- Netlify Identity Widget -->
-        <script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    </body>
+<!-- Netlify Identity Widget -->
+<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
 </html>

@@ -44,8 +44,8 @@ collections:
       - { label: "Page name", name: "name", widget: "string" }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Teaser", name: "teaser", widget: "markdown" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Teaser", name: "teaser", widget: "markdown" }
   - label: "Settings"
     name: "settings"
     editor:
@@ -82,3 +82,4 @@ collections:
           - { label: Name, name: name, widget: string }
           - { label: Author, name: author, widget: string }
           - { label: URL, name: url, widget: string }
+          - { label: Motto, name: motto, widget: string }
