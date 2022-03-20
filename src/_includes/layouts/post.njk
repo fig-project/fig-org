@@ -1,0 +1,25 @@
+---
+layout: layouts/base.njk
+---
+{% if hlink %}
+<h2><a href="{{ hlink | url }}" title="{{ title }}">{{ title | safe }}</a></h2>
+{% else %}
+<h2>{{ title | safe }}</h2>
+{% endif %}
+
+<div class="node">
+
+  {% if author %}
+  <span class="submitted">{{ date | friendlyDate }} &#151; {{ author }}</span>
+  {% endif %}
+
+  <div class="content">
+    {{ content | safe }}
+  </div>
+
+  <div class="clear-block clear">
+    <div class="meta"></div>
+    {% if readMoreUrl %}<div class="links"><ul class="links inline"><li class="first last node_read_more"><a href="{{ readMoreUrl | url }}" class="node_read_more">Read more...</a></li>
+</ul></div>{% endif %}
+  </div>
+</div>

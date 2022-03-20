@@ -31,20 +31,20 @@ collections_old:
         create: true
         options: ["Tags", "created", "from", "config.yml"]
 collections:
-  - label: "Top level"
-    name: "toplevel"
-    folder: "src/top"
+  - label: "Posts"
+    name: "posts"
+    folder: "src"
     create: true
     editor:
       preview: true
-    preview_path: "{{slug}}.html"
-    slug: "{{name}}"
+    preview_path: "{{permalink}}"
     fields:
       - { label: "Title", name: "title", widget: "string" }
-      - { label: "Page name", name: "name", widget: "string" }
+      - { label: "Permalink", name: "permalink", widget: "string", required: false }
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
+      - { label: "Layout", name: "layout", widget: "string", default: "layouts/post.njk" }
       - { label: "Teaser", name: "teaser", widget: "markdown" }
   - label: "Settings"
     name: "settings"

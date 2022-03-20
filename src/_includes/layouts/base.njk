@@ -3,7 +3,7 @@
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <title>FiG.org :: The Story of FiG</title>
+    <title>FiG.org :: {% if page.url == '/' %}Spiritual reductionism since 1998{% else %}{{ title }}{% endif %}</title>
 <meta name="google-site-verification" content="AmAmTNGpuiVP_vI0YqolsfHGYTe6Crrj6-r9GoS2uf8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="alternate" type="application/rss+xml" title="FiG.org RSS" href="/hg.cgi?rss-log" />
@@ -36,11 +36,11 @@
 
   <div class="content">
 <ul class="menu">
-<li class="expanded"><a href="/">About FIG</a>
+<li class="expanded">About FIG
 <ul class="menu">
   <li class="leaf"><a href="/philosophy.html">Philosophy</a></li>
   <li class="leaf"><a href="/project.html">FIG Project</a></li>
-  <li class="leaf">FIGstory</li>
+  <li class="leaf"><a href="/figstory.html">FIGstory</a></li>
 </ul>
 </li>
   <li class="leaf"><a href="/people.html">People</a></li>
@@ -62,48 +62,8 @@
                     <div id="mission">Promoting freedom and diversity
                     through pragmatic idealism.</div>
 
-          <div class="breadcrumb"><a href="/">Home</a></div>          
-                    <h2>The Story of FiG</h2>          
-          
-                              
-<div id="node-1" class="node">
+  {{ content | safe }}
 
-
-      <span class="submitted">Sun, 2007-10-28 16:13 &#151; michael</span>
-
-  
-  <div class="content">
-<p>The <a href="/project.html">FiG Project</a> was founded on May 6,
-1998 by <a href="http://michael.fig.org/">Gordon Matzigkeit</a>
-and Lyno Sullivan. Initially, the FiG Project's purpose was to
-apply <a href="http://www.gnu.org/licenses/licenses.html#WhatIsCopyleft">GNU
-copyleft</a> to all copyrightable information, not just software
-(FiG was a dual acronym for FiG Is GNU, and FiG Isn't GNU).</p>
-
-<p>Shortly after the founding, Gordon had an experience in which he
-came to believe that ideas are conscious, living entities, and that
-copyleft is an effective way of preserving the freedom of the ideas
-themselves, not just the people who benefit from them. To him at that
-time, FiG stood for Fractal Identity Generalization, expressing that
-personalities are made of other personalities at many different layers
-and scales.</p>
-
-<p>The first FiG.org web site was created in September of 1998,
-proclaiming the FiG Project as having no agenda other than that of its
-members, and people around the world began declaring themselves as
-FiGs. The FiG acronym was made inclusive; people could find any
-meaning in it that they wanted, because the FiG Project was about
-individuality and diversity.</p>
-
-<p>In 2006, the FiG.org web site was redesigned, with the intent of
-clarifying its central message.  As of 2007, a more pratical approach
-has been taken, by beginning public development
-of <a href="/software.html">software systems</a> that reflect the FiG
-philosophy.</p>
-
-  </div>
-
-</div>
 <table>
 <tr><td>Copyright &copy; 2007&nbsp;&nbsp;<a href="/project.html">The
 FiG Project</a> <a href="mailto:project@fig.org">&lt;project@fig.org&gt;</a></td> <td><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/">

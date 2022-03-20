@@ -5,6 +5,7 @@ const pluginSyntaxHighlight = require("@11ty/eleventy-plugin-syntaxhighlight");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const markdownIt = require("markdown-it");
 const markdownItAnchor = require("markdown-it-anchor");
+const markdownItReplaceLink = require("markdown-it-replace-link");
 const relativeUrl = require("eleventy-filter-relative-url");
 
 module.exports = function(eleventyConfig) {
@@ -29,6 +30,10 @@ module.exports = function(eleventyConfig) {
   // https://html.spec.whatwg.org/multipage/common-microsyntaxes.html#valid-date-string
   eleventyConfig.addFilter('htmlDateString', (dateObj) => {
     return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd');
+  });
+
+  eleventyConfig.addFilter('friendlyDate', (dateObj) => {
+    return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd HH:mm');
   });
 
   // Get the first `n` elements of a collection.
@@ -72,8 +77,16 @@ module.exports = function(eleventyConfig) {
   let markdownLibrary = markdownIt({
     html: true,
     breaks: true,
-    linkify: true
-  }).use(markdownItAnchor, {
+    linkify: true,
+    replaceLink: function (link, env) {
+      // console.log({ env });
+      if (link.startsWith('.')) {
+        return link.replace(/\.md$/, '.html');
+      }
+      return link;
+    }
+  }).use(markdownItReplaceLink)
+  .use(markdownItAnchor, {
     permalink: markdownItAnchor.permalink.ariaHidden({
       placement: "after",
       class: "direct-link",
@@ -110,8 +123,8 @@ module.exports = function(eleventyConfig) {
     templateFormats: [
       "md",
       "njk",
-      "html",
-      "liquid"
+      // "html",
+      // "liquid"
     ],
 
     // -----------------------------------------------------------------
@@ -140,8 +153,8 @@ module.exports = function(eleventyConfig) {
     // These are all optional (defaults are shown):
     dir: {
       input: "src",
-      includes: "src/_includes",
-      data: "src/_data",
+      includes: "_includes",
+      data: "_data",
       output: "_site"
     }
   };
