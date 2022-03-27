@@ -44,7 +44,7 @@ collections:
       - { label: "Author", name: "author", widget: "string" }
       - { label: "Publish Date", name: "date", widget: "datetime" }
       - { label: "Body", name: "body", widget: "markdown" }
-      - { label: "Layout", name: "layout", widget: "string", default: "layouts/post.njk" }
+      - { label: "Layout", name: "layout", widget: "string", default: "layouts/post.11ty.js" }
       - { label: "Teaser", name: "teaser", widget: "markdown" }
   - label: "Settings"
     name: "settings"

@@ -5,7 +5,7 @@ date: 2007-05-08T05:15:08.569Z
 teaser: "The FiG philosophy is: anything that can be named is alive. The word
   FiG is the generic term for such a living creature..."
 tags: home
-layout: layouts/post.njk
+layout: layouts/post.11ty.js
 permalink: philosophy.html
 ---
 The FiG philosophy is: anything that can be named is alive. The word FiG is the generic term for such a living creature, [coined in 1998](./figstory.md). So, anything that can be named is a FiG. You are a FiG, objects are FiGs, ideas are FiGs, the FiG philosophy is a FiG, the universe is a FiG.

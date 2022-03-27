@@ -4,7 +4,7 @@ author: michael
 date: 2007-10-28T22:13:49.028Z
 teaser: The [FiG Project](./project.md) was founded on May 6, 1998...
 permalink: figstory.html
-layout: layouts/post.njk
+layout: layouts/post.11ty.js
 ---
 The [FiG Project](./project.md) was founded on May 6, 1998 by [Gordon Matzigkeit](http://michael.fig.org/) and Lyno Sullivan. Initially, the FiG Project's purpose was to apply [GNU copyleft](http://www.gnu.org/licenses/licenses.html#WhatIsCopyleft) to all copyrightable information, not just software (FiG was a dual acronym for FiG Is GNU, and FiG Isn't GNU).
 

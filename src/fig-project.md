@@ -3,7 +3,7 @@ title: FiG Project
 permalink: project.html
 author: michael
 date: 2007-10-28T22:02:25.673Z
-layout: layouts/post.njk
+layout: layouts/post.11ty.js
 teaser: The purpose of the FiG Project is to spread the FiG philosophy. There
   are no entrance requirements...
 ---

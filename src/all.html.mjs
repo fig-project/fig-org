@@ -1,9 +1,20 @@
+import { DateTime } from 'luxon';
+
+export const friendlyDate = (dateObj) => {
+  return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd HH:mm');
+};
+
+export const makeBase = (html, data) => html`\
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
-    <title>FiG.org :: {% if page.url == '/' %}Spiritual reductionism since 1998{% else %}{{ title }}{% endif %}</title>
+    <title>FiG.org :: ${
+      data.page.url === '/' ?
+        'Spiritual reductionism since 1998' :
+        data.title
+    }</title>
 <meta name="google-site-verification" content="AmAmTNGpuiVP_vI0YqolsfHGYTe6Crrj6-r9GoS2uf8" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <link rel="alternate" type="application/rss+xml" title="FiG.org RSS" href="/hg.cgi?rss-log" />
@@ -62,7 +73,7 @@
                     <div id="mission">Promoting freedom and diversity
                     through pragmatic idealism.</div>
 
-  {{ content | safe }}
+${html.raw`${data.content}`}
 
 <table>
 <tr><td>Copyright &copy; 2007&nbsp;&nbsp;<a href="/project.html">The
@@ -71,7 +82,7 @@ FiG Project</a> <a href="mailto:project@fig.org">&lt;project@fig.org&gt;</a></td
 </a></td></tr>
 <tr><td colspan="2">This work is licensed under a 
 <a rel="license"
-   href="http://creativecommons.org/licenses/by/2.5/ca/">Creative
+    href="http://creativecommons.org/licenses/by/2.5/ca/">Creative
     Commons Attribution 2.5 Canada License</a>.</td></tr>
     <tr><td></td><td><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue"
         height="31" width="88" alt="Valid XHTML 1.0 Strict"
@@ -81,8 +92,58 @@ FiG Project</a> <a href="mailto:project@fig.org">&lt;project@fig.org&gt;</a></td
 </div></div></div></div> <!-- /.left-corner, /.right-corner, /#squeeze, /#center -->
 
     </div> <!-- /container -->
-<!-- /layout -->
+<!-- /layout23 -->
     </div>
   </body>
 </html>
+`;
 
+export const makePost = (html, data) => {
+  const content = html`
+<h2>${html.raw`${data.title}`}</h2>
+
+<div class="node">
+  ${data.author && html`\
+  <span class="submitted">${friendlyDate(data.date)} &#151; ${data.author}</span>`}
+  
+  <div class="content">
+    ${html`${data.content}`}
+  </div>
+  
+  <div class="clear-block clear">
+    <div class="meta"></div>
+    ${data.readMoreUrl && html`
+    <div class="links">
+      <ul class="links inline">
+        <li class="first last node_read_more"><a
+        href="${data.readMoreUrl}" class="node_read_more">Read more...</a></li>
+      </ul>
+    </div>`}
+  </div>
+</div>
+`;
+  return makeBase(html, { ...data, content });
+};
+
+
+export const makeIndex = (html, data) => {
+  const obj = {
+    teaser: data.collections.home[0].data.teaser,
+    url: data.collections.home[0].url,
+  };
+  obj.readMoreUrl = obj.url;
+  obj.title = html`<a href="${obj.url}">${data.collections.home[0].data.title}</a>`;
+
+  const content = html`
+<script type="text/javascript">
+  // Redirect admin logins.
+  if (location.hash.includes('confirmation_token=')) {
+    location.pathname = '/admin/';
+  }
+</script>
+
+${html.raw(obj.teaser)}
+`;
+
+  return makePost(html, { ...data, ...obj, content });
+};

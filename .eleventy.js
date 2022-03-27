@@ -18,7 +18,7 @@ module.exports = function(eleventyConfig) {
   eleventyConfig.setDataDeepMerge(true);
 
   // Alias `layout: post` to `layout: layouts/post.njk`
-  eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
+  // eleventyConfig.addLayoutAlias("post", "layouts/post.njk");
 
   // Use relative URLs where possible.
   eleventyConfig.addFilter("url", relativeUrl);
@@ -122,7 +122,8 @@ module.exports = function(eleventyConfig) {
     // e.g.: *.md, *.njk, *.html, *.liquid
     templateFormats: [
       "md",
-      "njk",
+      "11ty.js",
+      // "njk",
       // "html",
       // "liquid"
     ],
@@ -142,10 +143,10 @@ module.exports = function(eleventyConfig) {
     // -----------------------------------------------------------------
 
     // Pre-process *.md files with: (default: `liquid`)
-    markdownTemplateEngine: "njk",
+    // markdownTemplateEngine: "njk",
 
     // Pre-process *.html files with: (default: `liquid`)
-    htmlTemplateEngine: "njk",
+    // htmlTemplateEngine: "njk",
 
     // Opt-out of pre-processing global data JSON files: (default: `liquid`)
     dataTemplateEngine: false,
