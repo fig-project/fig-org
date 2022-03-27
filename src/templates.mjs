@@ -7,8 +7,8 @@ export const friendlyDate = (dateObj) => {
 export const makeBase = (html, data) => html`\
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>FiG.org :: ${
       data.page.url === '/' ?
@@ -61,12 +61,6 @@ export const makeBase = (html, data) => html`\
 </div>
 </div>
 
-<div id="block-node-0" class="clear-block block block-node">
-
-  <h2>Syndicate</h2>
-
-    <div class="content"><a href="/hg.cgi?rss-log" class="feed-icon"><img src="/images/feed.png" alt="Syndicate content" title="Syndicate content" width="16" height="16" /> Monitor changes</a></div>
-</div>
         </div>
       
       <div id="center"><div id="squeeze"><div class="right-corner"><div class="left-corner">
@@ -78,14 +72,14 @@ ${html.raw`${data.content}`}
 <table>
 <tr><td>Copyright &copy; 2007&nbsp;&nbsp;<a href="/project.html">The
 FiG Project</a> <a href="mailto:project@fig.org">&lt;project@fig.org&gt;</a></td> <td><a rel="license" href="https://creativecommons.org/licenses/by/2.5/ca/">
-<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/2.5/ca/88x31.png" />
+<img alt="Creative Commons License" width="88" height="31" src="https://i.creativecommons.org/l/by/2.5/ca/88x31.png" />
 </a></td></tr>
 <tr><td colspan="2">This work is licensed under a 
 <a rel="license"
     href="https://creativecommons.org/licenses/by/2.5/ca/">Creative
     Commons Attribution 2.5 Canada License</a>.</td></tr>
     <tr><td></td><td><a href="https://validator.w3.org/check?uri=referer"><img src="https://www.w3.org/Icons/valid-xhtml10-blue"
-        height="31" width="88" alt="Valid XHTML 1.0 Strict"
+        width="88" height="31" alt="Valid XHTML 1.0 Strict"
         /></a></td></tr>
 </table>
 
