@@ -7,8 +7,8 @@ export const friendlyDate = (dateObj) => {
 export const makeBase = (html, data) => html`\
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  "https://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="https://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
   <head>
     <title>FiG.org :: ${
       data.page.url === '/' ?
@@ -77,14 +77,14 @@ ${html.raw`${data.content}`}
 
 <table>
 <tr><td>Copyright &copy; 2007&nbsp;&nbsp;<a href="/project.html">The
-FiG Project</a> <a href="mailto:project@fig.org">&lt;project@fig.org&gt;</a></td> <td><a rel="license" href="http://creativecommons.org/licenses/by/2.5/ca/">
-<img alt="Creative Commons License" src="http://i.creativecommons.org/l/by/2.5/ca/88x31.png" />
+FiG Project</a> <a href="mailto:project@fig.org">&lt;project@fig.org&gt;</a></td> <td><a rel="license" href="https://creativecommons.org/licenses/by/2.5/ca/">
+<img alt="Creative Commons License" src="https://i.creativecommons.org/l/by/2.5/ca/88x31.png" />
 </a></td></tr>
 <tr><td colspan="2">This work is licensed under a 
 <a rel="license"
-    href="http://creativecommons.org/licenses/by/2.5/ca/">Creative
+    href="https://creativecommons.org/licenses/by/2.5/ca/">Creative
     Commons Attribution 2.5 Canada License</a>.</td></tr>
-    <tr><td></td><td><a href="http://validator.w3.org/check?uri=referer"><img src="http://www.w3.org/Icons/valid-xhtml10-blue"
+    <tr><td></td><td><a href="https://validator.w3.org/check?uri=referer"><img src="https://www.w3.org/Icons/valid-xhtml10-blue"
         height="31" width="88" alt="Valid XHTML 1.0 Strict"
         /></a></td></tr>
 </table>
@@ -116,7 +116,7 @@ export const makePost = (html, data) => {
     <div class="links">
       <ul class="links inline">
         <li class="first last node_read_more"><a
-        href="${data.readMoreUrl}" class="node_read_more">Read more...</a></li>
+        href=${data.readMoreUrl} class="node_read_more">Read more...</a></li>
       </ul>
     </div>`}
   </div>
@@ -132,7 +132,7 @@ export const makeIndex = (html, data) => {
     url: data.collections.home[0].url,
   };
   obj.readMoreUrl = obj.url;
-  obj.title = html`<a href="${obj.url}">${data.collections.home[0].data.title}</a>`;
+  obj.title = html`<a href=${obj.url}>${data.collections.home[0].data.title}</a>`;
 
   const content = html`
 <script type="text/javascript">

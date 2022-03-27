@@ -9,9 +9,13 @@ export const render = (maker, data) => {
   html.raw = (strings, ...values) => {
     const result = [];
     for (let i = 0; i < strings.length; i++) {
-      result.push(strings[i]);
+      const prior = strings[i];
+      result.push(prior);
+      const context = prior[prior.length - 1];
+      const surround = expanded =>
+        context === '=' ? `"${expanded}"` : expanded;
       if (i < values.length) {
-        result.push(expand(values[i], false));
+        result.push(surround(expand(values[i], false)));
       }
     }
     return html([result.join('')]);
@@ -37,9 +41,13 @@ export const render = (maker, data) => {
     const [strings, ...values] = isTemplate.get(value);
     const result = [];
     for (let i = 0; i < strings.length; i++) {
-      result.push(strings[i]);
+      const prior = strings[i];
+      result.push(prior);
+      const context = prior[prior.length - 1];
+      const surround = expanded =>
+        context === '=' ? `"${expanded}"` : expanded;
       if (i < values.length) {
-        result.push(expand(values[i], quote));
+        result.push(surround(expand(values[i], quote)));
       }
     }
     return result.join('');
