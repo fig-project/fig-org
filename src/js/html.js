@@ -1,9 +1,9 @@
 export const render = (maker, data) => {
   const isTemplate = new WeakMap();
   const html = (strings, ...values) => {
-    const id = {};
-    isTemplate.set(id, [strings, ...values]);
-    return id;
+    const handle = {};
+    isTemplate.set(handle, [strings, ...values]);
+    return handle;
   };
 
   html.raw = (strings, ...values) => {
