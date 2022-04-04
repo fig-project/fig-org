@@ -1,10 +1,10 @@
-import { DateTime } from 'luxon';
+const { DateTime } = require('luxon');
 
-export const friendlyDate = (dateObj) => {
+const friendlyDate = (dateObj) => {
   return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd HH:mm');
 };
 
-export const makeBase = (html, data) => html`\
+const makeBase = (html, data) => html`\
 <?xml version="1.0"?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
@@ -92,7 +92,7 @@ FiG Project</a> <a href="mailto:project@fig.org">&lt;project@fig.org&gt;</a></td
 </html>
 `;
 
-export const makePost = (html, data) => {
+const makePost = (html, data) => {
   const content = html`
 <h2>${html.raw`${data.title}`}</h2>
 
@@ -120,7 +120,7 @@ export const makePost = (html, data) => {
 };
 
 
-export const makeIndex = (html, data) => {
+const makeIndex = (html, data) => {
   const obj = {
     teaser: data.collections.home[0].data.teaser,
     url: data.collections.home[0].url,
@@ -141,3 +141,8 @@ ${html.raw(obj.teaser)}
 
   return makePost(html, { ...data, ...obj, content });
 };
+
+exports.makeIndex = makeIndex;
+exports.makeBase = makeBase;
+exports.makePost = makePost;
+exports.friendlyDate = friendlyDate;

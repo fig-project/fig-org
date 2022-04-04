@@ -1,4 +1,4 @@
-export const render = (maker, data) => {
+exports.render = (maker, data) => {
   const isTemplate = new WeakMap();
   const html = (strings, ...values) => {
     const handle = {};
