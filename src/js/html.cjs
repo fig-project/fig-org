@@ -6,19 +6,8 @@ exports.render = (maker, data) => {
     return handle;
   };
 
-  html.raw = (strings, ...values) => {
-    const result = [];
-    for (let i = 0; i < strings.length; i++) {
-      const prior = strings[i];
-      result.push(prior);
-      const context = prior[prior.length - 1];
-      const surround = expanded =>
-        context === '=' ? `"${expanded}"` : expanded;
-      if (i < values.length) {
-        result.push(surround(expand(values[i], false)));
-      }
-    }
-    return html([result.join('')]);
+  html.raw = htmlContent => {
+    return html([htmlContent]);
   };
 
   const expand = (value, quote = true) => {
@@ -43,11 +32,8 @@ exports.render = (maker, data) => {
     for (let i = 0; i < strings.length; i++) {
       const prior = strings[i];
       result.push(prior);
-      const context = prior[prior.length - 1];
-      const surround = expanded =>
-        context === '=' ? `"${expanded}"` : expanded;
       if (i < values.length) {
-        result.push(surround(expand(values[i], quote)));
+        result.push(expand(values[i], quote));
       }
     }
     return result.join('');

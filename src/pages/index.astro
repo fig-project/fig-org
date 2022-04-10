@@ -1,0 +1,8 @@
+---
+import { render } from '../js/html.js';
+import { makeBase } from '../js/templates.js';
+
+const data = { page: {}, content: "<b>hello, world</b>", title: 'Tester!' };
+const base = render(makeBase, data);
+---
+<Fragment set:html={base} />
