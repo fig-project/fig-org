@@ -3,15 +3,12 @@
   "private": true,
   "version": "5.0.2",
   "description": "The fig.org web site.",
-  "main": "src/js/templates.cjs",
   "scripts": {
-    "build": "eleventy",
-    "watch": "eleventy --watch",
-    "serve": "eleventy --serve",
-    "start": "eleventy --serve",
-    "dev": "npm-run-all -p serve cms-proxy",
-    "cms-proxy": "npx netlify-cms-proxy-server",
-    "debug": "DEBUG=* eleventy"
+    "build": "astro build",
+    "serve": "astro preview",
+    "start": "astro dev",
+    "dev": "npm-run-all -p start cms-proxy",
+    "cms-proxy": "npx netlify-cms-proxy-server"
   },
   "repository": {
     "type": "git",
