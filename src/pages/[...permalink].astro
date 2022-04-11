@@ -1,0 +1,19 @@
+---
+import { renderMarkdownFile } from '../components/md.js';
+import { render } from '../js/html.js';
+import { makePost } from '../js/templates.js';
+
+export async function getStaticPaths() {
+  const posts = await Astro.glob('../*.md');
+  return posts.map(post =>
+    ({ params: { permalink: post.frontmatter.permalink }, props: { post } })
+  );
+}
+
+const { post } = Astro.props;
+
+const content = await renderMarkdownFile(Astro, post.file);
+const data = { page: { ...post }, ...post.frontmatter, content }
+const html = render(makePost, data);
+---
+<Fragment set:html={html} />

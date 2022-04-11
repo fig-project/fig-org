@@ -63,4 +63,6 @@ node_modules/
 
 # dotenv environment variables file
 .env
-_site
+/_site
+/dist
+.DS_Store
