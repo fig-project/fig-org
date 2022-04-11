@@ -4,4 +4,9 @@ import { defineConfig } from 'astro/config';
 export default defineConfig({
 	// integrations: [lit()],
   publicDir: './public',
+  vite: {
+    ssr: {
+      external: ['layouts/post.11ty.js'],
+    },
+  },
 });

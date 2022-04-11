@@ -1,8 +1,18 @@
 ---
 import { render } from '../js/html.js';
-import { makeBase } from '../js/templates.js';
+import { makeIndex } from '../js/templates.js';
 
-const data = { page: {}, content: "<b>hello, world</b>", title: 'Tester!' };
-const base = render(makeBase, data);
+const posts = await Astro.glob('../*.md');
+const home = posts
+  .filter(post => post.frontmatter.tags?.includes('home'))
+  .map(post => {
+    const data = { ...post.frontmatter, url: post.frontmatter.permalink };
+    return { ...post, url: data.url, data };
+  });
+
+const collections = { home };
+
+const data = { page: { url: '/' }, collections }
+const html = render(makeIndex, data);
 ---
-<Fragment set:html={base} />
+<Fragment set:html={html} />

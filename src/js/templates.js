@@ -2,7 +2,13 @@
 import { DateTime } from 'luxon';
 
 const friendlyDate = (dateObj) => {
-  return DateTime.fromJSDate(dateObj, {zone: 'utc'}).toFormat('yyyy-LL-dd HH:mm');
+  let dt;
+  if (typeof dateObj === 'string') {
+    dt = DateTime.fromISO(dateObj);
+  } else {
+    dt = DateTime.fromJSDate(dateObj, { zone: 'utc' });
+  }
+  return dt.toFormat('yyyy-LL-dd HH:mm');
 };
 
 const makeBase = (html, data) => html`\
@@ -133,7 +139,7 @@ const makeIndex = (html, data) => {
 <script type="text/javascript">
   // Redirect admin logins.
   if (location.hash.includes('confirmation_token=')) {
-    location.pathname = '/admin/';
+    location.pathname = '/admin/index.html';
   }
 </script>
 
